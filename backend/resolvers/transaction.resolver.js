@@ -1,4 +1,3 @@
-import { transactions } from "../dummyData/dummyData.js";
 import Transaction from "../models/transaction.model.js";
 import User from "../models/user.model.js";
 
@@ -10,7 +9,7 @@ const transactionResolver = {
           throw new Error("User Unauthorized!!!");
         }
         const userId = await context.getUser()._id;
-        console.log("USER IN FROM CONTEXT:", userId);
+        // console.log("USER IN FROM CONTEXT:", userId);
         const transactions = await Transaction.find({ userId });
         return transactions;
       } catch (error) {
