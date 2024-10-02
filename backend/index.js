@@ -6,6 +6,7 @@ import passport from "passport";
 import session from "express-session";
 import connectMongo from "connect-mongodb-session";
 import path from "path";
+import job from './cron.js'
 
 import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
@@ -19,6 +20,8 @@ import { configurePassport } from "./passport/passport.config.js";
 
 dotenv.config();
 configurePassport();
+
+job.start();
 
 const __dirname = path.resolve();
 // console.log('__dirname:', __dirname) //==> D:\graphQL\expense-gql
